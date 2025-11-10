@@ -96,7 +96,7 @@ export default function HeroSection() {
             your business — from local deliveries to global freight forwarding.
           </p>
           <button className="bg-white text-black px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition">
-            JOIN OUR TEAM
+            About Us{" "}
           </button>
         </div>
 

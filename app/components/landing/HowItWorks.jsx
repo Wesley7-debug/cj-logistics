@@ -58,7 +58,7 @@ export default function HowItWorksSection() {
           {/* CTA Button */}
           <div className="mt-10">
             <button className="bg-black text-white px-6 py-3 rounded-full font-medium hover:bg-gray-900 transition">
-              JOIN OUR TEAM
+              Contact Us{" "}
             </button>
           </div>
         </div>

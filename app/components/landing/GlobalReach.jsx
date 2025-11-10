@@ -78,16 +78,12 @@ const GlobalReachSection = () => {
                 placeholder="Package details"
                 className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
-              <input
-                type="text"
-                placeholder="Your name"
-                className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
+
               <button
                 type="submit"
                 className="w-full bg-black text-white text-sm font-medium py-2 rounded-md hover:bg-gray-800 transition"
               >
-                Get Started
+                Track Shipment{" "}
               </button>
             </form>
           </div>
