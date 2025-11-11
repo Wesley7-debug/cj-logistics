@@ -51,9 +51,17 @@ export async function PUT(req, { params }) {
     }
 
     const body = await req.json();
-    const { status } = body;
+    let { status } = body;
 
-    if (!status || !["Active", "Paused"].includes(status)) {
+    // Accepted statuses
+    const validStatuses = ["Moving", "Paused", "Clearance", "Withheld"];
+
+    // Automatically convert "Active" → "Moving"
+    if (status === "Active") {
+      status = "Moving";
+    }
+
+    if (!status || !validStatuses.includes(status)) {
       return new Response(JSON.stringify({ error: "Invalid status value" }), {
         status: 400,
         headers: { "Content-Type": "application/json" },
@@ -74,7 +82,10 @@ export async function PUT(req, { params }) {
     }
 
     return new Response(
-      JSON.stringify({ message: "Status updated", shipment: updatedShipment }),
+      JSON.stringify({
+        message: "Status updated successfully",
+        shipment: updatedShipment,
+      }),
       { status: 200, headers: { "Content-Type": "application/json" } }
     );
   } catch (err) {
