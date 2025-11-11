@@ -115,12 +115,14 @@ export default function Navbar() {
         <nav className="fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-blur-md shadow-sm text-black transition-all duration-300">
           <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
             {/* Logo */}
-            <div className="text-base md:text-2xl font-bold flex items-center gap-2">
-              <span className="bg-blue-500 text-white rounded-full px-2 py-1 text-sm">
-                ⬤
-              </span>
-              TrackFreight
-            </div>
+            <Link href="/">
+              <div className="text-base md:text-2xl font-bold flex items-center gap-2">
+                <span className="bg-blue-500 text-white rounded-full px-2 py-1 text-sm">
+                  ⬤
+                </span>
+                TrackFreight
+              </div>
+            </Link>
 
             {/* Desktop Menu */}
             <ul className="hidden md:flex items-center gap-8 text-sm font-medium">
