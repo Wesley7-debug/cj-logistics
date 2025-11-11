@@ -113,14 +113,15 @@ export default function Navbar() {
       {/* Dim background slightly when modal open */}
       <div className={openModal ? "blur-sm transition duration-300" : ""}>
         <nav className="fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-blur-md shadow-sm text-black transition-all duration-300">
-          <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+          <div className="max-w-7xl mx-auto px-6 pky-3 flex items-center justify-between">
             {/* Logo */}
             <Link href="/">
-              <div className="text-base md:text-2xl font-bold flex items-center gap-2">
-                <span className="bg-blue-500 text-white rounded-full px-2 py-1 text-sm">
-                  ⬤
-                </span>
-                TrackFreight
+              <div className="text-base w-full h-[80px] font-bold flex items-center gap-2">
+                <img
+                  src="/images/logo.png"
+                  alt=""
+                  className="w-full h-full object-cover"
+                />
               </div>
             </Link>
 

@@ -2,32 +2,32 @@ import React from "react";
 
 const testimonials = [
   {
-    text: "No matter how many tools you change, you can keep Tines in place.",
-    company: "Intercom",
+    text: "CJ Logistics has transformed the way we handle our supply chain. Their precision and commitment to excellence make them an invaluable partner.",
+    company: "LogiTrade Solutions",
     bg: "bg-blue-100",
   },
   {
-    text: "My favorite thing about Tines is how easy and user-friendly it is. It feels like a game — whenever I build in Tines, I feel like I'm solving a fun puzzle.",
-    company: "GitLab",
+    text: "Working with CJ Logistics has been seamless  their team is responsive, professional, and consistently delivers on time. It feels like they’re an extension of our own operations team.",
+    company: "Emma R., Operations Manager at Nexa Retail",
     bg: "bg-orange-100",
   },
   {
-    text: "750 days of work time saved.",
-    company: "Elastic",
+    text: "Our shipping efficiency improved by 60% after partnering with CJ Logistics. They truly understand logistics innovation.",
+    company: "TransEdge Manufacturing",
     bg: "bg-purple-100",
   },
   {
-    text: "Tines is not only great for cybersecurity teams who are likely already undersized and drowning in alerts, but also for the business at large.",
-    company: "James K., Senior Manager, InfoSec",
+    text: "CJ Logistics stands out not just for their technology, but for their people. Their dedication to reliability and service quality is unmatched.",
+    company: "James K., Supply Chain Director",
     bg: "bg-green-100",
   },
   {
-    text: "The platform has played a pivotal role in helping us achieve our vision of a 24/7 SOC — ensuring alerts are streamlined and no critical notifications are missed.",
-    company: "Ajinkya Y., Cyber Analyst",
+    text: "They’ve helped us streamline deliveries across multiple regions  ensuring every order arrives exactly when it should. A true partner in growth.",
+    company: "Ajinkya Y., Distribution Analyst",
     bg: "bg-yellow-100",
   },
   {
-    text: "Process time per alert reduced from 30s to 5s.",
+    text: "With CJ Logistics, our average delivery time dropped from 48 hours to just 18 hours. That kind of efficiency is a game-changer.",
     company: "Customer Case Study",
     bg: "bg-pink-100",
   },

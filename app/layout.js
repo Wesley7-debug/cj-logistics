@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "TrackFreight",
+  title: "CJ Logistics",
   description: "A logistic site",
 };
 

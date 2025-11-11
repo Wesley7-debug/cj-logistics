@@ -36,8 +36,8 @@ const ContactUs = () => {
               <Phone className="w-6 h-6 text-blue-500" />
               <div>
                 <p className="font-medium">Call Us</p>
-                <p className="text-gray-600">+1 (800) 456-7890</p>
-                <p className="text-gray-600">+1 (800) 987-6543</p>
+                <p className="text-gray-600">+1 (800) #### ####</p>
+                <p className="text-gray-600">+1 (800) ###-####</p>
               </div>
             </div>
 
@@ -45,8 +45,9 @@ const ContactUs = () => {
               <Mail className="w-6 h-6 text-blue-500" />
               <div>
                 <p className="font-medium">Email</p>
-                <p className="text-gray-600">support@fastlogistics.com</p>
-                <p className="text-gray-600">info@fastlogistics.com</p>
+                <p className="text-gray-600">
+                  cjlogistics.customerinformation@gmail.com
+                </p>
               </div>
             </div>
 
@@ -55,8 +56,8 @@ const ContactUs = () => {
               <div>
                 <p className="font-medium">Office Address</p>
                 <p className="text-gray-600">
-                  123 Global Trade Ave, Suite 400 <br />
-                  New York, NY 10001
+                  123 Global Chibiak Ave, Suite 400 <br />
+                  New York, NY.
                 </p>
               </div>
             </div>
