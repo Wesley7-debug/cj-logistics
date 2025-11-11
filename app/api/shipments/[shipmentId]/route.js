@@ -85,3 +85,46 @@ export async function PUT(req, { params }) {
     });
   }
 }
+
+export async function DELETE(req, { params }) {
+  try {
+    await connectDB();
+
+    const { shipmentId } = await params;
+    if (!shipmentId) {
+      return new Response(
+        JSON.stringify({ error: "Shipment ID is required" }),
+        {
+          status: 400,
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+    }
+
+    const deletedShipment = await Shipment.findOneAndDelete({ shipmentId });
+
+    if (!deletedShipment) {
+      return new Response(JSON.stringify({ error: "Shipment not found" }), {
+        status: 404,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+
+    return new Response(
+      JSON.stringify({
+        message: "Shipment deleted successfully",
+        shipment: deletedShipment,
+      }),
+      {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+  } catch (err) {
+    console.error("Error deleting shipment:", err);
+    return new Response(JSON.stringify({ error: "Server error" }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+}

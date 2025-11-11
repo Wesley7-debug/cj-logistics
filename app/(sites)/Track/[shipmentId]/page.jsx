@@ -157,7 +157,7 @@ const TrackShipmentPage = () => {
 
           <div className="mt-3 sm:mt-0 flex items-center gap-2">
             <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">
-              {shipment.status || "In Progress"}
+              shipment: {shipment.status || "In Progress"}
             </span>
           </div>
         </div>

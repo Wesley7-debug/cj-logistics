@@ -1,6 +1,8 @@
-import React from "react";
-
+"use client";
+import { useState } from "react";
+import Link from "next/link";
 const GlobalReachSection = () => {
+  const [shipmentId, setshipmentId] = useState("");
   return (
     <section className="bg-white px-8 py-20">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
@@ -74,6 +76,8 @@ const GlobalReachSection = () => {
             </h3>
             <form className="space-y-3">
               <input
+                value={shipmentId}
+                onChange={(e) => setshipmentId(e.target.value)}
                 type="text"
                 placeholder="Package details"
                 className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -83,7 +87,7 @@ const GlobalReachSection = () => {
                 type="submit"
                 className="w-full bg-blue-500 text-white text-sm font-medium py-2 rounded-md hover:bg-gray-800 transition"
               >
-                Track Shipment{" "}
+                <Link href={`/Track/${shipmentId}`}>Track Shipment </Link>
               </button>
             </form>
           </div>
