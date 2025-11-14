@@ -1,5 +1,6 @@
 import React from "react";
 import { Phone, Mail, MapPin, Send } from "lucide-react";
+import ContactForm from "@/app/components/ui/ContactForm";
 
 const ContactUs = () => {
   return (
@@ -65,7 +66,7 @@ const ContactUs = () => {
         </div>
 
         {/* Right: Contact Form */}
-        <div>
+        {/* <div>
           <h3 className="text-2xl font-semibold mb-6">Send us a message</h3>
           <form className="bg-white shadow-md rounded-xl p-8 space-y-6">
             <div>
@@ -109,7 +110,8 @@ const ContactUs = () => {
               Send Message
             </button>
           </form>
-        </div>
+        </div> */}
+        <ContactForm />
       </section>
 
       {/* Map Section */}
