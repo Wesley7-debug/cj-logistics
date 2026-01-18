@@ -120,19 +120,17 @@ export async function PUT(req, { params }) {
 
     const body = await req.json();
 
-    if (body.status === "Paused") {
-      body.status = "Hold";
-    }
-
     const allowedStatuses = [
       "Transit",
-      "Out for Delivery",
-      "Delivered",
+      "Withheld",
+      "Custom duty",
+      "Clearance",
+      "Seized",
       "Delayed",
-      "Pending",
-      "Cancelled",
-      "Hold",
-      "Returned",
+      "Waiting For Pickup",
+      "Paused",
+      "On Hold",
+      "Arrived",
     ];
 
     // Validate status

@@ -1,5 +1,17 @@
 import mongoose from "mongoose";
 
+const allowedStatuses = [
+  "Transit",
+  "Withheld",
+  "Custom duty",
+  "Clearance",
+  "Seized",
+  "Delayed",
+  "Waiting For Pickup",
+  "Paused",
+  "On Hold",
+  "Arrived",
+];
 const ShipmentSchema = new mongoose.Schema({
   shipmentId: { type: String, required: true, unique: true },
   name: { type: String, required: true },
@@ -11,19 +23,10 @@ const ShipmentSchema = new mongoose.Schema({
   departed: { type: Date, required: true },
   expected: { type: Date, required: true },
 
-  // ⭐ Status with Enum
+  // ⭐ Updated Status with your new allowed values
   status: {
     type: String,
-    enum: [
-      "Transit",
-      "Out for Delivery",
-      "Delivered",
-      "Delayed",
-      "Pending",
-      "Cancelled",
-      "Hold",
-      "Returned",
-    ],
+    enum: allowedStatuses,
     default: "Transit",
   },
 
@@ -49,7 +52,7 @@ const ShipmentSchema = new mongoose.Schema({
   shipperInfo: { type: String, default: "" }, // full paragraph
   receiverInfo: { type: String, default: "" }, // full paragraph
 
-  // ⭐ New fields for payment, shipment type, pickup, carrier, and comments
+  // ⭐ Payment, shipment type, pickup, carrier, and comments
   paymentMethod: { type: String, default: "card" },
   totalFreight: { type: Number, default: 0 },
   pickupDateTime: { type: Date },

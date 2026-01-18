@@ -6,37 +6,42 @@ import ShipmentMap from "@/app/components/ui/ShipmentMap";
 import ShipmentProgressBar from "@/app/components/ui/ShipmentProgressBar";
 import {
   Truck,
-  ArrowBigRightDash,
-  CheckCircle2,
-  AlarmClock,
-  Timer,
+  AlertTriangle,
+  Gavel,
+  FileSearch,
   XCircle,
+  Clock,
+  PackageSearch,
   PauseCircle,
-  RotateCcw,
+  Hand, // New for On Hold
+  MapPin, // New for Arrived
 } from "lucide-react";
 
 const STATUS_STYLES = {
   Transit: "bg-blue-100 text-blue-700",
-  "Out for Delivery": "bg-indigo-100 text-indigo-700",
-  Delivered: "bg-green-100 text-green-700",
+  Withheld: "bg-orange-100 text-orange-700",
+  "Custom duty": "bg-amber-100 text-amber-800",
+  Clearance: "bg-emerald-100 text-emerald-800",
+  Seized: "bg-red-100 text-red-700",
   Delayed: "bg-yellow-100 text-yellow-700",
-  Pending: "bg-gray-100 text-gray-700",
-  Cancelled: "bg-red-100 text-red-700",
-  Hold: "bg-amber-100 text-amber-800",
-  Returned: "bg-purple-100 text-purple-700",
+  "Waiting For Pickup": "bg-indigo-100 text-indigo-700",
+  Paused: "bg-gray-900 text-gray-200",
+  "On Hold": "bg-rose-100 text-rose-700", // Style for On Hold
+  Arrived: "bg-green-100 text-green-700", // Style for Arrived
 };
 
 const STATUS_ICONS = {
   Transit: <Truck size={16} />,
-  "Out for Delivery": <ArrowBigRightDash size={16} />,
-  Delivered: <CheckCircle2 size={16} />,
-  Delayed: <AlarmClock size={16} />,
-  Pending: <Timer size={16} />,
-  Cancelled: <XCircle size={16} />,
-  Hold: <PauseCircle size={16} />,
-  Returned: <RotateCcw size={16} />,
+  Withheld: <AlertTriangle size={16} />,
+  "Custom duty": <Gavel size={16} />,
+  Clearance: <FileSearch size={16} />,
+  Seized: <XCircle size={16} />,
+  Delayed: <Clock size={16} />,
+  "Waiting For Pickup": <PackageSearch size={16} />,
+  Paused: <PauseCircle size={16} />,
+  "On Hold": <Hand size={16} />, // Icon for On Hold
+  Arrived: <MapPin size={16} />, // Icon for Arrived
 };
-
 const TrackShipmentPage = () => {
   const [shipment, setShipment] = useState(null);
   const [loading, setLoading] = useState(true);
