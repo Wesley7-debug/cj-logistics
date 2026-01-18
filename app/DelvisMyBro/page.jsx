@@ -178,6 +178,7 @@
 // }
 "use client";
 
+
 import React, { useState, useEffect } from "react";
 import {
   Package,
@@ -203,7 +204,6 @@ export default function AdminDashboard() {
   const [editingShipment, setEditingShipment] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Updated styles for the 10 statuses
   const STATUS_STYLES = {
     Transit: "bg-blue-100 text-blue-700",
     Withheld: "bg-orange-100 text-orange-700",
@@ -217,7 +217,6 @@ export default function AdminDashboard() {
     Arrived: "bg-green-100 text-green-700",
   };
 
-  // Updated options for the selection buttons
   const STATUS_OPTIONS = [
     { label: "Transit", icon: <Truck size={18} /> },
     { label: "Withheld", icon: <AlertTriangle size={18} /> },
@@ -260,7 +259,6 @@ export default function AdminDashboard() {
   };
 
   const updateShipmentStatus = async (id, newStatus) => {
-    // Optimistic Update
     setShipments((prev) =>
       prev.map((s) => (s.id === id ? { ...s, status: newStatus } : s)),
     );
@@ -272,21 +270,21 @@ export default function AdminDashboard() {
       });
     } catch (err) {
       alert("Could not update status");
-      fetchShipments(); // Rollback
+      fetchShipments();
     }
   };
 
   if (loading)
     return (
-      <div className="flex items-center justify-center min-h-screen font-medium text-gray-500">
+      <div className="flex items-center justify-center min-h-screen font-medium text-gray-500 text-sm sm:text-base">
         Loading shipments...
       </div>
     );
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col pt-20">
-      <header className="flex items-center justify-between bg-white shadow-md px-8 py-5 fixed top-0 w-full z-10">
-        <h1 className="text-2xl font-semibold text-gray-800 flex items-center gap-2">
+    <div className="min-h-screen bg-gray-50 flex flex-col pt-24 sm:pt-20">
+      <header className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white shadow-md px-4 sm:px-8 py-4 fixed top-0 w-full z-10">
+        <h1 className="text-lg sm:text-2xl font-semibold text-gray-800 flex items-center gap-2">
           <Package className="text-blue-500" /> Admin Dashboard
         </h1>
         <button
@@ -294,20 +292,19 @@ export default function AdminDashboard() {
             setEditingShipment(null);
             setShowAddModal(true);
           }}
-          className="flex items-center gap-2 bg-blue-100 hover:bg-blue-200 text-blue-600 px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+          className="flex items-center justify-center gap-2 bg-blue-100 hover:bg-blue-200 text-blue-600 px-4 py-2 rounded-lg text-sm font-medium transition-colors w-full sm:w-auto"
         >
           <Plus size={18} /> Add Shipment
         </button>
       </header>
 
-      <main className="flex-1 p-8">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <main className="flex-1 p-4 sm:p-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {shipments.map((s) => (
             <div
               key={s.id}
-              className="bg-white shadow-sm hover:shadow-md transition rounded-xl p-5 border border-gray-100 relative"
+              className="bg-white shadow-sm hover:shadow-md transition rounded-xl p-4 sm:p-5 border border-gray-100 relative"
             >
-              {/* Edit Icon top left */}
               <button
                 onClick={() => handleEditClick(s)}
                 className="absolute top-3 left-3 p-1.5 bg-gray-50 hover:bg-gray-200 rounded-full text-gray-400 hover:text-blue-600 transition"
@@ -316,21 +313,26 @@ export default function AdminDashboard() {
               </button>
 
               <div className="pl-6">
-                <h3 className="text-lg font-semibold text-gray-800 truncate">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-800 truncate">
                   {s.to}
                 </h3>
-                <p className="text-sm text-gray-500 mt-1">Name: {s.name}</p>
-                <p className="text-sm text-gray-500">Email: {s.email}</p>
-                <p className="text-sm text-gray-500 font-mono text-xs mt-1">
+                <p className="text-xs sm:text-sm text-gray-500 mt-1">
+                  Name: {s.name}
+                </p>
+                <p className="text-xs sm:text-sm text-gray-500">
+                  Email: {s.email}
+                </p>
+                <p className="text-xs text-gray-500 font-mono mt-1">
                   ID: {s.id}
                 </p>
-                <p className="text-sm text-gray-500 mb-3">Date: {s.date}</p>
+                <p className="text-xs sm:text-sm text-gray-500 mb-3">
+                  Date: {s.date}
+                </p>
               </div>
 
-              {/* Status Badge */}
               <div className="mb-4 pl-6">
                 <span
-                  className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
+                  className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider ${
                     STATUS_STYLES[s.status] || "bg-gray-100 text-gray-700"
                   }`}
                 >
@@ -339,7 +341,6 @@ export default function AdminDashboard() {
                 </span>
               </div>
 
-              {/* Status Update Actions */}
               <div className="flex flex-wrap gap-2 pl-6">
                 {STATUS_OPTIONS.map((opt) => (
                   <button
@@ -361,7 +362,7 @@ export default function AdminDashboard() {
         </div>
 
         {shipments.length === 0 && (
-          <div className="text-center py-20 text-gray-400">
+          <div className="text-center py-20 text-gray-400 text-sm sm:text-base">
             No shipments found in the records.
           </div>
         )}
